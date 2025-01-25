@@ -128,14 +128,6 @@ const SiginForm = ({ formType }: { formType: FormType }) => {
           {formType === "signup" ? "Create Account" : "Sign in"}
         </button>
       </form>
-      <p className=" -my-3 text-xl font-semibold">or</p>
-      <button
-        className=" flex items-center gap-2 rounded-md bg-extraLightGray p-2 font-bold shadow-xl dark:bg-lightTheme dark:text-darkTheme md:w-full"
-        onClick={() => signIn("google")}
-      >
-        <FcGoogle />
-        {formType === "signup" ? "Sign Up" : "Sign in"} with Google
-      </button>
       <p>
         {formType === "signup"
           ? "Already have an account, "

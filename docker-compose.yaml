@@ -1,0 +1,25 @@
+services:
+  blabstr-db:
+    container_name: blabstr-db
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=blabstr
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - type: bind
+        source: docker/blabstr-db/data
+        target: /var/lib/postgresql/data
+    networks:
+      - blabstr-network
+    ports:
+      - 5332:5432
+    restart: unless-stopped
+
+networks:
+  blabstr-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "172.22.0.1"
+
